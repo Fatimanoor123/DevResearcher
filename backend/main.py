@@ -27,8 +27,21 @@ APP_VERSION = "2.0.0"
 
 AGENT_ID = "devresearcher"
 
-HOST = "127.0.0.1"
-PORT = 8000
+# Bind to all interfaces so Railway (and any container network) can
+# route external traffic to this process. Port is provided by the
+# platform via the $PORT environment variable.
+HOST = os.environ.get("HOST", "0.0.0.0")
+PORT = int(os.environ.get("PORT", 8000))
+
+# Optional database connection string. Not required for the API to
+# boot, but consumed here so it is easy to wire up persistence later.
+DATABASE_URL = os.environ.get("DATABASE_URL", "")
+
+# Public domain Railway assigns to this service (e.g. my-app.up.railway.app).
+RAILWAY_PUBLIC_DOMAIN = os.environ.get("RAILWAY_PUBLIC_DOMAIN", "")
+
+# URL of the separately deployed frontend, used for CORS.
+FRONTEND_URL = os.environ.get("FRONTEND_URL", "")
 
 DEFAULT_MODEL = "openai/gpt-5.6-luna"
 
@@ -103,10 +116,17 @@ AVAILABLE_MODELS = [
 # OPENCLAW INSTALLATION
 # ============================================================
 
-KNOWN_OPENCLAW_PATHS = [
-    r"C:\Users\Pcw\AppData\Roaming\npm\openclaw.cmd",
-    r"C:\Users\Pcw\AppData\Roaming\npm\openclaw",
-]
+# Windows-only fallback install locations. These are only consulted
+# when running on Windows (os.name == "nt"); on Linux containers such
+# as Railway, OpenClaw is expected to be resolved via PATH instead.
+KNOWN_OPENCLAW_PATHS = (
+    [
+        r"C:\Users\Pcw\AppData\Roaming\npm\openclaw.cmd",
+        r"C:\Users\Pcw\AppData\Roaming\npm\openclaw",
+    ]
+    if os.name == "nt"
+    else []
+)
 
 
 # ============================================================
@@ -127,14 +147,34 @@ app = FastAPI(
 # CORS
 # ============================================================
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=[
+def _build_allowed_origins() -> List[str]:
+    """
+    Build the list of allowed CORS origins.
+
+    Includes local development origins plus any origins derived from
+    environment variables so the deployed frontend (a separate
+    Railway service) can call this API.
+    """
+
+    origins = [
         "http://localhost:5173",
         "http://127.0.0.1:5173",
         "http://localhost:3000",
         "http://127.0.0.1:3000",
-    ],
+    ]
+
+    if FRONTEND_URL:
+        origins.append(FRONTEND_URL)
+
+    if RAILWAY_PUBLIC_DOMAIN:
+        origins.append(f"https://{RAILWAY_PUBLIC_DOMAIN}")
+
+    return origins
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=_build_allowed_origins(),
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -254,7 +294,7 @@ def find_ollama() -> Optional[str]:
 
 def validate_project_path(project_path: str) -> Path:
     """
-    Validate and normalize a Windows project directory.
+    Validate and normalize a project directory path.
     """
 
     if not project_path:
@@ -695,81 +735,27 @@ async def read_project_file(path: str):
 
 
 # ============================================================
-# WINDOWS FOLDER PICKER
+# WINDOWS FOLDER PICKER (DISABLED IN CONTAINER DEPLOYMENTS)
 # ============================================================
-
-def choose_folder_windows() -> Optional[str]:
-    """
-    Open the native Windows folder picker.
-
-    This runs on the backend machine, so the backend must be
-    running locally on the same Windows computer as the browser.
-    """
-
-    if os.name != "nt":
-        raise RuntimeError(
-            "Windows folder picker is only available on Windows."
-        )
-
-    try:
-
-        import tkinter as tk
-        from tkinter import filedialog
-
-    except ImportError as exc:
-
-        raise RuntimeError(
-            "Tkinter is not available in this Python installation."
-        ) from exc
-
-    root = tk.Tk()
-
-    try:
-
-        root.withdraw()
-        root.attributes("-topmost", True)
-
-        folder = filedialog.askdirectory(
-            title="Select DevResearcher Project Folder"
-        )
-
-        return folder or None
-
-    finally:
-
-        root.destroy()
+#
+# The native OS folder picker (tkinter) only works on a desktop
+# Windows machine with a display attached. It cannot run inside a
+# headless Linux container such as Railway, so the endpoint is
+# disabled here. Clients should instead let the user type/paste a
+# project path, or upload files directly.
 
 
 @app.api_route("/api/project/pick-folder", methods=["GET", "POST"])
 async def pick_project_folder():
 
-    try:
-
-        folder = await asyncio.to_thread(
-            choose_folder_windows
-        )
-
-        if not folder:
-
-            return {
-                "selected": False,
-                "path": None,
-            }
-
-        project = validate_project_path(folder)
-
-        return {
-            "selected": True,
-            "path": str(project),
-            "name": project.name,
-        }
-
-    except Exception as exc:
-
-        raise HTTPException(
-            status_code=500,
-            detail=f"Could not select folder: {exc}",
-        )
+    raise HTTPException(
+        status_code=501,
+        detail=(
+            "The native folder picker is not available in this "
+            "deployment. This endpoint only works when the backend "
+            "runs directly on a Windows desktop."
+        ),
+    )
 
 
 # ============================================================
