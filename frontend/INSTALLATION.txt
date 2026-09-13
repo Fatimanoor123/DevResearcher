@@ -1,0 +1,114 @@
+DEVRESEARCHER CLEAN FRONTEND
+============================
+
+IMPORTANT
+---------
+This is a frontend replacement only. Keep your working FastAPI backend.
+Before replacing the old frontend, rename it to:
+    frontend_old_backup
+
+REQUIREMENTS
+------------
+Windows 10/11
+Node.js 18+ recommended
+npm
+FastAPI backend running on 127.0.0.1:8000
+
+INSTALL
+-------
+cd D:\python\devresearcher\frontend
+npm install
+npm run build
+npm run dev
+
+Open:
+http://127.0.0.1:5173
+
+BACKEND
+-------
+Backend:
+http://127.0.0.1:8000
+
+Expected endpoints:
+GET  /api/health
+GET  /api/project/pick-folder
+GET  /api/project/tree
+GET  /api/project/file
+PUT  /api/project/file
+POST /api/project/run
+GET  /api/search
+POST /api/search/replace
+GET  /api/git/status
+POST /api/git/stage
+POST /api/git/unstage
+POST /api/git/commit
+WS   /ws/agent
+WS   /ws/terminal
+
+START BOTH
+----------
+Terminal 1:
+cd D:\python\devresearcher\backend
+.venv\Scripts\activate
+uvicorn main:app --reload
+
+Terminal 2:
+cd D:\python\devresearcher\frontend
+npm run dev
+
+OPEN FOLDER
+-----------
+Click "Open Folder".
+The frontend calls:
+    GET /api/project/pick-folder
+
+The Python backend must provide the native Windows folder picker.
+The browser cannot create that native picker by itself.
+
+AGENT PROTOCOL
+--------------
+The frontend sends:
+{"message":"...","project_path":"C:\\project"}
+
+Expected events:
+start, output, error, done
+
+TERMINAL PROTOCOL
+-----------------
+Initial:
+{"type":"init","cwd":"C:\\project","shell":"cmd"}
+
+Input:
+{"type":"input","data":"dir\r"}
+
+Expected events:
+ready, data, exit, error
+
+TROUBLESHOOTING
+---------------
+Backend offline:
+- Start FastAPI on port 8000.
+- Check http://127.0.0.1:8000/api/health
+
+Open Folder fails:
+- Make sure /api/project/pick-folder exists.
+- Restart FastAPI.
+- Test the endpoint directly.
+
+Agent says "Missing message":
+- This indicates an OpenClaw/backend invocation issue, not a frontend UI issue.
+- Confirm the backend receives a non-empty message and passes it correctly to OpenClaw.
+
+Terminal blank:
+- Open a project first.
+- Switch to TERMINAL.
+- Use the restart terminal button.
+
+Git:
+- The frontend does not automatically run git init.
+- Existing repositories are shown through /api/git/status.
+
+NOTE
+----
+The selected project path is stored in localStorage for convenience.
+No project path is hard-coded.
