@@ -1,0 +1,451 @@
+{
+  "agent:devresearcher:main": {
+    "sessionId": "05903d0e-22cc-4140-9955-7ea615654592",
+    "updatedAt": 1787574095203,
+    "sessionStartedAt": 1787574074800,
+    "lastInteractionAt": 1787574074800,
+    "skillsSnapshot": {
+      "skills": [
+        {
+          "name": "clawhub"
+        },
+        {
+          "name": "diagram-maker"
+        },
+        {
+          "name": "discord",
+          "requiredEnv": []
+        },
+        {
+          "name": "healthcheck"
+        },
+        {
+          "name": "meme-maker",
+          "requiredEnv": []
+        },
+        {
+          "name": "node-connect"
+        },
+        {
+          "name": "node-inspect-debugger",
+          "requiredEnv": []
+        },
+        {
+          "name": "notion",
+          "primaryEnv": "NOTION_API_TOKEN",
+          "requiredEnv": []
+        },
+        {
+          "name": "skill-creator"
+        },
+        {
+          "name": "spike"
+        },
+        {
+          "name": "taskflow"
+        },
+        {
+          "name": "taskflow-inbox-triage"
+        },
+        {
+          "name": "weather"
+        }
+      ],
+      "version": 1786761165114,
+      "promptFormatVersion": 1,
+      "promptRef": {
+        "version": 1,
+        "algorithm": "sha256",
+        "hash": "05abf69593f445c2ebe4e8cfc616c6d502b288e56c4f1b1ab33c1b175e2dfb15",
+        "bytes": 4699
+      }
+    },
+    "model": "gpt-5.6-luna",
+    "modelProvider": "openai",
+    "lastActivityAt": 1786768306264,
+    "contextTokens": 372000,
+    "agentHarnessId": "codex",
+    "systemPromptReport": {
+      "source": "run",
+      "generatedAt": 1786767694840,
+      "sessionId": "839e9640-e78d-4729-b85b-7cc22a1fa4d6",
+      "sessionKey": "agent:devresearcher:main",
+      "provider": "openai",
+      "model": "gpt-5.6-luna",
+      "workspaceDir": "C:\\Users\\Pcw\\.openclaw\\workspace\\devresearcher",
+      "systemPrompt": {
+        "chars": 12132,
+        "projectContextChars": 0,
+        "nonProjectContextChars": 12132,
+        "hash": "9c67cdeb195049eb773c7d04ef322f0f3acfa585cea5c25e3b4287fad20bdcdb"
+      },
+      "injectedWorkspaceFiles": [
+        {
+          "name": "AGENTS.md",
+          "path": "C:\\Users\\Pcw\\.openclaw\\workspace\\devresearcher\\AGENTS.md",
+          "missing": false,
+          "rawChars": 14884,
+          "injectedChars": 14884,
+          "truncated": false
+        },
+        {
+          "name": "SOUL.md",
+          "path": "C:\\Users\\Pcw\\.openclaw\\workspace\\devresearcher\\SOUL.md",
+          "missing": false,
+          "rawChars": 1623,
+          "injectedChars": 1623,
+          "truncated": false
+        },
+        {
+          "name": "TOOLS.md",
+          "path": "C:\\Users\\Pcw\\.openclaw\\workspace\\devresearcher\\TOOLS.md",
+          "missing": false,
+          "rawChars": 866,
+          "injectedChars": 866,
+          "truncated": false
+        },
+        {
+          "name": "IDENTITY.md",
+          "path": "C:\\Users\\Pcw\\.openclaw\\workspace\\devresearcher\\IDENTITY.md",
+          "missing": false,
+          "rawChars": 321,
+          "injectedChars": 321,
+          "truncated": false
+        },
+        {
+          "name": "USER.md",
+          "path": "C:\\Users\\Pcw\\.openclaw\\workspace\\devresearcher\\USER.md",
+          "missing": false,
+          "rawChars": 831,
+          "injectedChars": 831,
+          "truncated": false
+        },
+        {
+          "name": "HEARTBEAT.md",
+          "path": "C:\\Users\\Pcw\\.openclaw\\workspace\\devresearcher\\HEARTBEAT.md",
+          "missing": false,
+          "rawChars": 243,
+          "injectedChars": 0,
+          "truncated": false
+        }
+      ],
+      "skills": {
+        "promptChars": 4697,
+        "hash": "caef78778928df950ffeafd1083b13244100f617d95b635244bf9e489e63578e",
+        "entries": [
+          {
+            "name": "clawhub",
+            "blockChars": 344
+          },
+          {
+            "name": "diagram-maker",
+            "blockChars": 317
+          },
+          {
+            "name": "discord",
+            "blockChars": 300
+          },
+          {
+            "name": "healthcheck",
+            "blockChars": 329
+          },
+          {
+            "name": "meme-maker",
+            "blockChars": 302
+          },
+          {
+            "name": "node-connect",
+            "blockChars": 332
+          },
+          {
+            "name": "node-inspect-debugger",
+            "blockChars": 328
+          },
+          {
+            "name": "notion",
+            "blockChars": 323
+          },
+          {
+            "name": "skill-creator",
+            "blockChars": 310
+          },
+          {
+            "name": "spike",
+            "blockChars": 302
+          },
+          {
+            "name": "taskflow",
+            "blockChars": 332
+          },
+          {
+            "name": "taskflow-inbox-triage",
+            "blockChars": 342
+          },
+          {
+            "name": "weather",
+            "blockChars": 340
+          }
+        ]
+      },
+      "tools": {
+        "listChars": 0,
+        "schemaChars": 1287,
+        "entries": [
+          {
+            "name": "agents_list",
+            "summaryChars": 63,
+            "summaryHash": "a7afb8adbaf98833df68160db0677ec2a6bc30b1b96f3592392c9df59e310c65",
+            "schemaChars": 76,
+            "schemaHash": "d746974fa9afd5e951f76f9af38954b0ad7f436f2120dc974da65e5ee39f856f",
+            "propertiesCount": 0
+          },
+          {
+            "name": "sessions_spawn",
+            "summaryChars": 578,
+            "summaryHash": "c75061234ba01a4eb29ca223c1c63a44935e9e555ef2ca280722ba9e844db86d",
+            "schemaChars": 1151,
+            "schemaHash": "5e07e3a617574a8e1ed974ca0857b74a3f98b0ad90a5834e0711de92b3e8f89c",
+            "propertiesCount": 15
+          },
+          {
+            "name": "sessions_yield",
+            "summaryChars": 79,
+            "summaryHash": "f3782fc41c1522657e1d3494f486a2df998fed38a6b89dcf7f6934fb41424320",
+            "schemaChars": 60,
+            "schemaHash": "d803b8cd6aef950bd59c7467fe8ce4d612d0730f5b0270a521b792f7ef6e4550",
+            "propertiesCount": 1
+          },
+          {
+            "name": "whatsapp_login",
+            "summaryChars": 74,
+            "summaryHash": "c22efc39a32254dac50adf057f625a5779ead6cf67541714697bba674de5c145",
+            "schemaChars": 0,
+            "schemaHash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+            "propertiesCount": null
+          },
+          {
+            "name": "nodes",
+            "summaryChars": 143,
+            "summaryHash": "ea1b0a5498ca3c788b26d164245652e1aaa989806e0123715793ab25f9578121",
+            "schemaChars": 0,
+            "schemaHash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+            "propertiesCount": null
+          },
+          {
+            "name": "cron",
+            "summaryChars": 4062,
+            "summaryHash": "7038f1b185a7cdf7a40525eeca91ed39dfd7bbaf85e89027896af264de54b4d9",
+            "schemaChars": 0,
+            "schemaHash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+            "propertiesCount": null
+          },
+          {
+            "name": "message",
+            "summaryChars": 579,
+            "summaryHash": "7a28470f67975de35ebbb9c0c75d4c44d035871a27226b1828c5bd663e9876dd",
+            "schemaChars": 0,
+            "schemaHash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+            "propertiesCount": null
+          },
+          {
+            "name": "tts",
+            "summaryChars": 217,
+            "summaryHash": "652c1970c199d82b61061a40be2adddfc7e5634df5d896d776a8a0047c8a6b75",
+            "schemaChars": 0,
+            "schemaHash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+            "propertiesCount": null
+          },
+          {
+            "name": "image_generate",
+            "summaryChars": 468,
+            "summaryHash": "d093313d17509b72795516c6ad7c92a9f1e8c7943239d570fd81347dc2557424",
+            "schemaChars": 0,
+            "schemaHash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+            "propertiesCount": null
+          },
+          {
+            "name": "music_generate",
+            "summaryChars": 524,
+            "summaryHash": "67e4d3d73cbc844f2cc2ffb16cbbe3a6d4a58ec88a8cbe0bd0106515b6fec638",
+            "schemaChars": 0,
+            "schemaHash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+            "propertiesCount": null
+          },
+          {
+            "name": "video_generate",
+            "summaryChars": 307,
+            "summaryHash": "59fd08c3f2947e0394c7d1aae5219763bf201537bef536228c6c4fd63724e415",
+            "schemaChars": 0,
+            "schemaHash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+            "propertiesCount": null
+          },
+          {
+            "name": "gateway",
+            "summaryChars": 566,
+            "summaryHash": "1bef48b95fc67d7dc10e2f5f0cc3522951b067b762de6c3e77bc446de0f608b1",
+            "schemaChars": 0,
+            "schemaHash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+            "propertiesCount": null
+          },
+          {
+            "name": "get_goal",
+            "summaryChars": 71,
+            "summaryHash": "58dea7906d9e17e5f89a75fea24597ee068d8a56af824370dc27f8501374d6e3",
+            "schemaChars": 0,
+            "schemaHash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+            "propertiesCount": null
+          },
+          {
+            "name": "create_goal",
+            "summaryChars": 155,
+            "summaryHash": "f01e3a63d673a410ba55213ce6bd3fa2b0d2279e8e780c18aa0cb5aa991b29b3",
+            "schemaChars": 0,
+            "schemaHash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+            "propertiesCount": null
+          },
+          {
+            "name": "update_goal",
+            "summaryChars": 212,
+            "summaryHash": "285201690e5f2456b4cdcd252ff391709b84d69538df61bad694d3c0cfc19958",
+            "schemaChars": 0,
+            "schemaHash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+            "propertiesCount": null
+          },
+          {
+            "name": "skill_workshop",
+            "summaryChars": 171,
+            "summaryHash": "577c1d2b8f56bf3e9dd5e00463bbce8b8bf4cf201da9b21b588dcaa3bc6ed8cf",
+            "schemaChars": 0,
+            "schemaHash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+            "propertiesCount": null
+          },
+          {
+            "name": "sessions_list",
+            "summaryChars": 150,
+            "summaryHash": "6991b34a692cbbecc50302184503776bf8d7317b336d649fcd9373beab5473dc",
+            "schemaChars": 0,
+            "schemaHash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+            "propertiesCount": null
+          },
+          {
+            "name": "sessions_history",
+            "summaryChars": 149,
+            "summaryHash": "09b418c8da696b361c021f66705dab0215a613f6c18a9722767f6129907e0dcd",
+            "schemaChars": 0,
+            "schemaHash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+            "propertiesCount": null
+          },
+          {
+            "name": "sessions_send",
+            "summaryChars": 282,
+            "summaryHash": "061e9ef3487676bb2a4fd4c0336bd973aaab5eea0725e7443c4cb17518cd1e78",
+            "schemaChars": 0,
+            "schemaHash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+            "propertiesCount": null
+          },
+          {
+            "name": "subagents",
+            "summaryChars": 132,
+            "summaryHash": "1c2ffd38549c0444b118d43736fc4b875ea1aaabc446bbf8bc1fc4ee9180cca4",
+            "schemaChars": 0,
+            "schemaHash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+            "propertiesCount": null
+          },
+          {
+            "name": "session_status",
+            "summaryChars": 278,
+            "summaryHash": "71177e543dc6235bad4b1a26761995681dcec27ab58dcb4f4f8a7fc9a7b2b5aa",
+            "schemaChars": 0,
+            "schemaHash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+            "propertiesCount": null
+          },
+          {
+            "name": "web_search",
+            "summaryChars": 65,
+            "summaryHash": "b38e9b3c079beaa988d3c576303660b91a55c2e72f56351da04160529173273f",
+            "schemaChars": 0,
+            "schemaHash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+            "propertiesCount": null
+          },
+          {
+            "name": "web_fetch",
+            "summaryChars": 93,
+            "summaryHash": "8875afbb51bd63673e5e6836ca31eeda73914a464862665cd73b346e28d28fd5",
+            "schemaChars": 0,
+            "schemaHash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+            "propertiesCount": null
+          },
+          {
+            "name": "image",
+            "summaryChars": 169,
+            "summaryHash": "a46820ca8952445d3663a8908bfa5d3adddff5b53d18b9d8e9eed8f9e593b494",
+            "schemaChars": 0,
+            "schemaHash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+            "propertiesCount": null
+          },
+          {
+            "name": "pdf",
+            "summaryChars": 159,
+            "summaryHash": "9f323da0ccbf37f01fff7374ae5cba64b4c05b5f0fc9d982aee7c64040cc61d5",
+            "schemaChars": 0,
+            "schemaHash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+            "propertiesCount": null
+          },
+          {
+            "name": "memory_search",
+            "summaryChars": 605,
+            "summaryHash": "0f918d28864d3682ae77731f149273997c84773592a466b18c7cd0121b599a05",
+            "schemaChars": 0,
+            "schemaHash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+            "propertiesCount": null
+          },
+          {
+            "name": "memory_get",
+            "summaryChars": 239,
+            "summaryHash": "bff1141a3da31a345c550337417efc9ace4da2909004606c727c59ca1a294495",
+            "schemaChars": 0,
+            "schemaHash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+            "propertiesCount": null
+          },
+          {
+            "name": "node_inference",
+            "summaryChars": 206,
+            "summaryHash": "49c5e7e56c65dee8e708065c58240d64d8067dc07d9d13597890ecb5388ac88d",
+            "schemaChars": 0,
+            "schemaHash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+            "propertiesCount": null
+          },
+          {
+            "name": "code_execution",
+            "summaryChars": 139,
+            "summaryHash": "dab5ca00c79079bed40238874430256e32b63a51caa1e28ac162f0ba85ef5f7a",
+            "schemaChars": 0,
+            "schemaHash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+            "propertiesCount": null
+          },
+          {
+            "name": "x_search",
+            "summaryChars": 184,
+            "summaryHash": "e602f65cb9e902e25427193fc5e6e0eb042a637e40ee8c44e70c9f522640e749",
+            "schemaChars": 0,
+            "schemaHash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+            "propertiesCount": null
+          }
+        ]
+      }
+    },
+    "inputTokens": 773,
+    "outputTokens": 902,
+    "totalTokens": 42501,
+    "totalTokensFresh": true,
+    "cacheRead": 41728,
+    "cacheWrite": 0,
+    "estimatedCostUsd": 0.010357799999999999,
+    "sessionFile": "C:\\Users\\Pcw\\.openclaw\\agents\\devresearcher\\sessions\\05903d0e-22cc-4140-9955-7ea615654592.jsonl",
+    "status": "failed",
+    "startedAt": 1787574078009,
+    "endedAt": 1787574079574,
+    "runtimeMs": 1565,
+    "abortedLastRun": false
+  }
+}

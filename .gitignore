@@ -1,0 +1,31 @@
+# Dependencies
+node_modules/
+
+# Environment variables / secrets
+.env
+.env.*
+!.env.example
+
+# OpenClaw secrets
+.openclaw/.env
+.openclaw/.env.txt
+.openclaw/credentials/
+
+# OpenClaw temporary/runtime data
+.openclaw/**/.tmp/
+.openclaw/logs/
+.openclaw/locks/
+.openclaw/state/
+.openclaw/media/
+
+# OpenClaw backups
+.openclaw/*.bak
+.openclaw/*.bak.*
+.openclaw/*.last-good
+
+# General build/cache files
+dist/
+build/
+.next/
+__pycache__/
+*.pyc

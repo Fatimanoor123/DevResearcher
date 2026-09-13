@@ -1,0 +1,16 @@
+{
+  "generatedBy": "openclaw-plugin-model-catalog-v1",
+  "providers": {
+    "ollama": {
+      "baseUrl": "http://127.0.0.1:11434",
+      "models": [
+        {
+          "id": "qwen3:1.7b",
+          "name": "qwen3:1.7b"
+        }
+      ],
+      "apiKey": "ollama-local",
+      "api": "ollama"
+    }
+  }
+}
